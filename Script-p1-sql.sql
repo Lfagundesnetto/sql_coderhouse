@@ -25,6 +25,22 @@ CREATE TABLE produto_tabela (
     preco DECIMAL
 );
 
+CREATE TABLE pedidos (
+id_pedido INT PRIMARY KEY AUTO_INCREMENT, 
+id_usuario INT, 
+id_produto INT, 
+data_pedido DATE, 
+data_entrega DATE, 
+preco DECIMAL, 
+frete DECIMAL, 
+preco_total DECIMAL, 
+forma_de_pagamento TEXT, 
+endereco_entrega VARCHAR(50),
+estado_entrega TEXT
+);
+
+
+
 INSERT INTO usuario_tabela (nome, sobrenome, data_nascimento, endereco, num_cep, nom_uf, email, num_sapato, genero, data_subscricao, data_at_cad) 
 VALUES 
 ('João','Silva','1990-05-15','Rua das Flores, 123','12345-678','SP','joao@email.com',42,'Masculino','2022-03-20', '2023-10-05'),
@@ -119,5 +135,38 @@ INSERT INTO produto_tabela (nome_produto, tipo_calcado, genero, cor, categoria, 
 ('Bota Cano Curto', 'Bota', 'Feminino', 'Preto', 'Cano Curto', 38, 219.99)
 
 
-select * from produto_tabela;
+INSERT INTO pedidos (id_usuario, id_produto, data_pedido, data_entrega, preco, frete, preco_total, forma_de_pagamento, endereco_entrega, estado_entrega)
+VALUES 
+(1, 1, '2023-03-20', '2023-03-25', 199.99, 15.00, 214.99, 'Cartão de Crédito', 'Rua das Flores, 123', 'SP'),
+(2, 5, '2023-04-10', '2023-04-15', 149.99, 10.00, 159.99, 'Boleto Bancário', 'Avenida dos Sonhos, 456', 'RJ'),
+(3, 10, '2023-05-05', '2023-05-10', 189.99, 12.00, 201.99, 'Cartão de Débito', 'Rua das Estrelas, 789', 'MG'),
+(4, 15, '2023-06-20', '2023-06-25', 99.99, 8.00, 107.99, 'PIX', 'Praça das Flores, 321', 'BA'),
+(5, 20, '2023-07-15', '2023-07-20', 219.99, 15.00, 234.99, 'Cartão de Crédito', 'Avenida das Árvores, 987', 'RS'),
+(3, 15, '2023-05-20', '2023-05-25', 99.99, 8.00, 107.99, 'PIX', 'Rua das Flores, 123', 'SP'),
+(4, 20, '2023-06-05', '2023-06-10', 219.99, 15.00, 234.99, 'Cartão de Crédito', 'Avenida dos Sonhos, 456', 'RJ'),
+(5, 25, '2023-07-10', '2023-07-15', 149.99, 10.00, 159.99, 'Boleto Bancário', 'Rua das Estrelas, 789', 'MG'),
+(6, 30, '2023-08-15', '2023-08-20', 189.99, 12.00, 201.99, 'Cartão de Débito', 'Praça das Flores, 321', 'BA'),
+(7, 35, '2023-09-20', '2023-09-25', 199.99, 15.00, 214.99, 'PIX', 'Avenida das Árvores, 987', 'RS'),
+(8, 40, '2023-10-10', '2023-10-15', 179.99, 10.00, 189.99, 'Cartão de Crédito', 'Rua das Flores, 123', 'SP'),
+(9, 45, '2023-11-05', '2023-11-10', 129.99, 8.00, 137.99, 'Boleto Bancário', 'Avenida dos Sonhos, 456', 'RJ'),
+(10, 50, '2023-12-10', '2023-12-15', 249.99, 15.00, 264.99, 'Cartão de Débito', 'Rua das Estrelas, 789', 'MG'),
+(11, 55, '2024-01-15', '2024-01-20', 199.99, 12.00, 211.99, 'PIX', 'Praça das Flores, 321', 'BA'),
+(12, 60, '2024-02-20', '2024-02-25', 299.99, 20.00, 319.99, 'Cartão de Crédito', 'Avenida das Árvores, 987', 'RS'),
+(13, 65, '2024-03-05', '2024-03-10', 169.99, 10.00, 179.99, 'Boleto Bancário', 'Rua das Flores, 123', 'SP'),
+(14, 1, '2024-04-10', '2024-04-15', 199.99, 12.00, 211.99, 'Cartão de Débito', 'Avenida dos Sonhos, 456', 'RJ'),
+(15, 6, '2024-05-15', '2024-05-20', 149.99, 8.00, 157.99, 'PIX', 'Rua das Estrelas, 789', 'MG'),
+(16, 11, '2024-06-20', '2024-06-25', 229.99, 15.00, 244.99, 'Cartão de Crédito', 'Praça das Flores, 321', 'BA'),
+(17, 16, '2024-07-10', '2024-07-15', 259.99, 20.00, 279.99, 'Boleto Bancário', 'Avenida das Árvores, 987', 'RS'),
+(18, 21, '2024-08-05', '2024-08-10', 189.99, 10.00, 199.99, 'Cartão de Débito', 'Rua das Flores, 123', 'SP'),
+(19, 26, '2024-09-10', '2024-09-15', 99.99, 8.00, 107.99, 'PIX', 'Avenida dos Sonhos, 456', 'RJ'),
+(1, 31, '2024-10-15', '2024-10-20', 149.99, 12.00, 161.99, 'Boleto Bancário', 'Rua das Estrelas, 789', 'MG'),
+(3, 36, '2024-11-20', '2024-11-25', 219.99, 15.00, 234.99, 'Cartão de Crédito', 'Praça das Flores, 321', 'BA'),
+(5, 41, '2024-12-05', '2024-12-10', 199.99, 10.00, 209.99, 'PIX', 'Avenida das Árvores, 987', 'RS'),
+(6, 46, '2025-01-10', '2025-01-15', 179.99, 8.00, 187.99, 'Boleto Bancário', 'Rua das Flores, 123', 'SP'),
+(14, 51, '2025-02-15', '2025-02-20', 159.99, 12.00, 171.99, 'Cartão de Débito', 'Avenida dos Sonhos, 456', 'RJ'),
+(18, 56, '2025-03-20', '2025-03-25', 249.99, 15.00, 264.99, 'Cartão de Crédito', 'Rua das Estrelas, 789', 'MG'),
+(18, 61, '2025-04-10', '2025-04-15', 299.99, 20.00, 319.99, 'PIX', 'Praça das Flores, 321', 'BA'),
+(5, 66, '2025-05-05', '2025-05-10', 169.99, 10.00, 179.99, 'Boleto Bancário', 'Avenida das Árvores, 987', 'RS')
 
+
+select * from pedidos;
